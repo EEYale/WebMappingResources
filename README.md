@@ -1,4 +1,4 @@
-# WebMappingResources
+# Web Mapping Resources
 Collection of online tutorials and guides for web mapping 
 
 - [Online tutorial on web mapping from MIT](http://duspviz.mit.edu/web-map-workshop/)
