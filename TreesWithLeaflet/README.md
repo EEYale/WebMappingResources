@@ -43,7 +43,7 @@ The following tutorial was based on [this awesome tutorial created by Maptime Bo
   </body>
 </html>
 ```
-2) To add Leaflet functionality, we need to add both the `Leaflet CSS` as well as the `Leaflet JavaScript library` to our script. Then, we add a `<div>` element which contains our map, and style it by setting the width and height parameters. Finally, we initialize a map using Leaflet and add the [Open Street Map tile layers](https://wiki.openstreetmap.org/wiki/Tiles) as our basemap. Your final index.html file should look like this:
+2) To add Leaflet functionality, we need to add both the `Leaflet CSS` as well as the `Leaflet JavaScript library` to our script. Then, we add a `<div>` element which contains our map, and style it by setting the width and height parameters. Finally, we initialize a map using Leaflet and add the [Open Street Map tile layers](https://wiki.openstreetmap.org/wiki/Tiles) as our basemap. Your final `index.html` file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
@@ -87,7 +87,7 @@ Your map should look like this:
 ![alt text](https://raw.githubusercontent.com/EEYale/WebMappingResources/master/TreesWithLeaflet/tilelayeronly.png "Map with Tile Layer")
 
 ### Part Five: Make a map with a tile layer and tree data.
-Now, let's add some tree data to our map as a set of points. We also want each point to have a popup that tells us the Common Name, Diameter at Breast Height (DBH) and the nearest address for the tree. To do this, we need to add the `jQuery JavaScript library` to pull in data from our `dixwellTrees.geojson` file. Next, after pulling in the data as `geojson` features, we bind each feature to a pop-up and specify the text which should appear. The pop-up pulls from the properties of each `geojson` feature to produce the correct data for each tree/point on the map. Your final index.html file should look like this:
+Now, let's add some tree data to our map as a set of points. We also want each point to have a popup that tells us the Common Name, Diameter at Breast Height (DBH) and the nearest address for the tree. To do this, we need to add the `jQuery JavaScript library` to pull in data from our `dixwellTrees.geojson` file. Next, after pulling in the data as `geojson` features, we bind each feature to a pop-up and specify the text which should appear. The pop-up pulls from the properties of each `geojson` feature to produce the correct data for each tree/point on the map. Your final `index.html` file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
@@ -151,7 +151,7 @@ Your map should look like this:
 ![alt text](https://raw.githubusercontent.com/EEYale/WebMappingResources/master/TreesWithLeaflet/treedata.png "Map with Tile Layer and Tree Data")
 
 ### Part Six: Make a map with a tile layer, tree data and marker cluster capability.
-Wow, that was a lot of points. Perhaps we want to show this in a less dizzying way by clustering the points. To do so, we need to add the `Leaflet markerCluster CSS` and `Leaflet markerCluster JavaScript library` to our script. The[markerCluster plugin](https://github.com/Leaflet/Leaflet.markercluster) is just one of the many plugins developed to extend what Leaflet can do. Then, we replace the previous codeblock that binds pop-ups to each feature using the `onEachFeature` method, with some code which uses the `pointToLayer` method instead. Your final index.html file should look like this:
+Wow, that was a lot of points. Perhaps we want to show this in a less dizzying way by clustering the points. To do so, we need to add the `Leaflet markerCluster CSS` and `Leaflet markerCluster JavaScript library` to our script. The[markerCluster plugin](https://github.com/Leaflet/Leaflet.markercluster) is just one of the many plugins developed to extend what Leaflet can do. Then, we replace the previous codeblock that binds pop-ups to each feature using the `onEachFeature` method, with some code which uses the `pointToLayer` method instead. Your final `index.html` file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
