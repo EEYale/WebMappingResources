@@ -87,7 +87,7 @@ Your map should look like this:
 ![alt text](https://raw.githubusercontent.com/EEYale/WebMappingResources/master/TreesWithLeaflet/tilelayeronly.png "Map with Tile Layer")
 
 ### Part Five: Make a map with a tile layer and tree data.
-Now, let's add some tree data to our map as a set of points. We also want each point to have a popup that tells us the Common Name, Diameter at Breast Height (DBH) and the nearest address for the tree. To do this, we need to add the `jQuery JavaScript library` to pull in data from our `dixwellTrees.geojson` file. Next, after pulling in the data as `geojson` features, we bind each feature to a pop-up and specify the text which should appear. The pop-up pulls from the properties of each `geojson` feature to produce the correct data for each tree/point on the map. Your final `index.html` file should look like this:
+Now, let's add some tree data to our map as a set of points. We also want each point to have a pop-up that tells us the *Common Name*, *Diameter at Breast Height (DBH)* and the *nearest address for the tree*. To do this, we need to add the `jQuery JavaScript library` to pull in data from our `dixwellTrees.geojson` file. Next, after pulling in the data as `geojson` features, we bind each feature to a pop-up and specify the text which should appear. The pop-up pulls from the properties of each `geojson` feature to produce the correct data for each tree/point on the map. Your final `index.html` file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
