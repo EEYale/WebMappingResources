@@ -3,7 +3,7 @@
 
 Short URL to this page: [https://tinyurl.com/treemap2018](https://tinyurl.com/treemap2018)
 
-The following tutorial was based on [this awesome tutorial created by Maptime Boston](https://maptimeboston.github.io/leaflet-intro/) as well as tutorials from [the Leaflet website](https://leafletjs.com]. We modified it to use our own New Haven street tree data from the neighborhood of Dixwell. We recommend you read through the Maptime Boston tutorial before attempting to try this out. They do a great job explaining all the bits and pieces you need to know!
+The following tutorial was based on [this awesome tutorial created by Maptime Boston](https://maptimeboston.github.io/leaflet-intro/) as well as tutorials from [the Leaflet website](https://leafletjs.com). We modified it to use our own New Haven street tree data from the neighborhood of Dixwell. We recommend you read through the Maptime Boston tutorial before attempting to try this out. They do a great job explaining all the bits and pieces you need to know!
 
 ## Steps
 
@@ -142,7 +142,7 @@ Now, let's add some tree data to our map as a set of points. We also want each p
 ```
 
 ### Part Six: Make a map with a tile layer, tree data and marker cluster capability.
-Wow, that was a lot of points. Perhaps we want to show this in a less dizzying way by clustering the points. To do so, we need to add the `Leaflet markerCluster CSS and JavaScript library` to our script. Then, we replace the previous codeblock that binds pop-ups to each feature using the `onEachFeeature` method, with some code which uses the `pointToLayer` method instead. Your final index.html file should look like this:
+Wow, that was a lot of points. Perhaps we want to show this in a less dizzying way by clustering the points. To do so, we need to add the `Leaflet markerCluster CSS` and `Leaflet markerCluster JavaScript library` to our script. The[markerCluster plugin](https://github.com/Leaflet/Leaflet.markercluster) is just one of the many plugins developed to extend what Leaflet can do. Then, we replace the previous codeblock that binds pop-ups to each feature using the `onEachFeature` method, with some code which uses the `pointToLayer` method instead. Your final index.html file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
