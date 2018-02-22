@@ -151,7 +151,7 @@ Your map should look like this:
 ![alt text](https://raw.githubusercontent.com/EEYale/WebMappingResources/master/TreesWithLeaflet/treedata.png "Map with Tile Layer and Tree Data")
 
 ### Part Six: Make a map with a tile layer, tree data and marker cluster capability.
-Wow, that was a lot of points. Perhaps we want to show this in a less dizzying way by clustering the points. To do so, we need to add the `Leaflet markerCluster CSS` and `Leaflet markerCluster JavaScript library` to our script. The[markerCluster plugin](https://github.com/Leaflet/Leaflet.markercluster) is just one of the many plugins developed to extend what Leaflet can do. Then, we replace the previous codeblock that binds pop-ups to each feature using the `onEachFeature` method, with some code which uses the `pointToLayer` method instead. Your final `index.html` file should look like this:
+Wow, that was a lot of points. Perhaps we want to show this in a less dizzying way by clustering the points. To do so, we need to add the `Leaflet markerCluster CSS` and `Leaflet markerCluster JavaScript library` to our script. The [markerCluster plugin](https://github.com/Leaflet/Leaflet.markercluster) is just one of the many plugins developed to extend what Leaflet can do. After adding the abovementioned CSS and JavaScript library, we replace the previous code that binds pop-ups to each feature using the `onEachFeature` method, with some code which uses the `pointToLayer` method instead. Your final `index.html` file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
