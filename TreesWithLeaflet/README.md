@@ -13,7 +13,7 @@ The following tutorial was based on [this awesome tutorial created by Maptime Bo
 3) Unzip the compressed folder and move the `TreesWithLeaflet` folder to your desktop.
 4) The important files we will work with are:
 	- `index.html` is a working html file that produces a web map that we will see in our browser window. 
-	- `shell.html` contains the basic htmp structure we will fill in with code to build our web maps. 
+	- `shell.html` contains the basic html structure we will fill in with code to build our web maps. 
 	- `dixwellTrees.geojson` is a file that contains all the tree data that we will be mapping.
 
 ### Part Two: Fire up a local web server
