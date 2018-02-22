@@ -25,8 +25,8 @@ The following tutorial was based on [this awesome tutorial created by Maptime Bo
 
 ### Part Three: Rename your index.html file and restart the web server
 1) Now, outside of the command prompt/ Terminal, right-click on the file `index.html` and rename it `finalScript.html`. 
-2) Right-click on the file `shell.html` and rename it `index.html`. We will be building our map in there now. 
-3) Let's restart the local web server. Go back to the command prompt or Terminal, then press and hold `CTRL` followed by `C`. This shuts down the web server. Then, start it again by pressing the `UP Arrow Key` to get to either the `python -m SimpleHTTPServer` or the `python -m http.server` command. 
+2) Right-click on the file `shell.html` and rename it `index.html`. We will be building our map in the new `index.html` now. 
+3) Let's restart the local web server. Go back to the command prompt or Terminal, then press and hold `CTRL` followed by `C`. This shuts down the web server. Then, start it again by pressing the `UP Arrow Key` to get to either the `python -m SimpleHTTPServer` or the `python -m http.server` command. Then, hit `enter` or `return` to start the web server again.
 4) Go to your browser. If you refresh the `localhost:8000` browser window, you should see nothing. That's good!
 
 ### Part Four: Make a map with just a tile layer.
