@@ -27,7 +27,7 @@ The following tutorial was based on [this awesome tutorial created by Maptime Bo
 4) Go to your browser. If you refresh the `localhost:8000` browser window, you should see nothing. That's good!
 
 ### Part Four: Make a map with just a tile layer.
-1) Open `index.html` in your text editor (could be Sublime or Notepad or something else). You should see the following: 
+1) Open `index.html` in your text editor (could be [Sublime](http://www.sublimetext.com) or Notepad or something else). You should see the following: 
 ```html
 <!DOCTYPE html>
 <html>
