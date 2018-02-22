@@ -3,7 +3,7 @@
 
 Short URL to this page: [https://tinyurl.com/treemap2018](https://tinyurl.com/treemap2018)
 
-The following tutorial was based on [this awesome tutorial created by Maptime Boston](https://maptimeboston.github.io/leaflet-intro/). We modified it to use our own New Haven street tree data from the neighborhood of Dixwell. We recommend you read through the Maptime Boston tutorial before attempting to try this out. They do a great job explaining all the bits and pieces you need to know!
+The following tutorial was based on [this awesome tutorial created by Maptime Boston](https://maptimeboston.github.io/leaflet-intro/) as well as tutorials from [the Leaflet website](https://leafletjs.com]. We modified it to use our own New Haven street tree data from the neighborhood of Dixwell. We recommend you read through the Maptime Boston tutorial before attempting to try this out. They do a great job explaining all the bits and pieces you need to know!
 
 ## Steps
 
@@ -26,13 +26,190 @@ The following tutorial was based on [this awesome tutorial created by Maptime Bo
 3) Let's restart the local web server. Go back to the command prompt or Terminal, then press and hold `CTRL` followed by `C`. This shuts down the web server. Then, start it again by pressing the `UP Arrow Key` to get to either the `python -m SimpleHTTPServer` or the `python -m http.server` command. 
 4) Go to your browser. If you refresh the `localhost:8000` browser window, you should see nothing. That's good!
 
-### Part Four: Make a map with a tile layer.
-1) Let's build a map. First we are going to add the `Leaflet CSS` and `Leaflet JavaScript library` into our new and relatively empty `index.html` file. 
-2) 
+### Part Four: Make a map with just a tile layer.
+1) Open `index.html` in your text editor (could be Sublime or Notepad or something else). You should see the following: 
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+  
+  </body>
+</html>
+```
+2) Your final index.html file should look like this:
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Map with Tile Layer Only</title>
+   <!--Adding Leaflet CSS-->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+
+   <style>
+   #mapid { 
+   	height: 400px;
+   	width: 600px; 
+   }
+   </style>
+  </head>
+
+  <body>
+	<div id ="mapid"></div> 
+	
+	<!-- Everything inside the <script> tags is JavaScript.-->
+	<!-- Adding Leaflet JavaScript Library. Make sure you put this AFTER Leaflet's CSS -->
+ 	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+
+<!-- Let's make a map! -->
+	<script>
+	// Initializes the Map, centers the map on New Haven's coordinates, sets zoom level to 14.
+	var mymap = L.map('mapid').setView([41.31, -72.93], 14);
+	
+	// Add Open Street Map Tiles to the map
+	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(mymap);
+	</script>
+```
 
 ### Part Five: Make a map with a tile layer and tree data.
+Your final index.html file should look like this:
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Map with Tile Layer Only</title>
+   <!--Adding Leaflet CSS-->
+ 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+
+   <style>
+   #mapid { 
+   	height: 400px;
+   	width: 600px; 
+   }
+   </style>
+  </head>
+
+  <body>
+	<div id ="mapid"></div> 
+	
+	<!-- Everything inside the <script> tags is JavaScript.-->
+	<!-- Adding Leaflet JavaScript Library. Make sure you put this AFTER Leaflet's CSS -->
+ 	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+
+ 	<!-- Add jQuery JavaScript Library-->
+ 	 <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+	<!-- Let's make a map! -->
+	<script>
+	// Initializes the Map, centers the map on New Haven's coordinates, sets zoom level to 14.
+	var mymap = L.map('mapid').setView([41.31, -72.93], 14);
+	
+	// Add Open Street Map Tiles to the map
+	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(mymap);
+	</script>
+	
+	<script>
+	// This code block shows each point with custom popups
+	// The following $.getJSON command is enabled by jQuery. 
+		// Load GeoJSON from an external file
+		$.getJSON("dixwellTrees.geojson",function(data){
+		// add GeoJSON layer to the map once the file is loaded
+	 	L.geoJSON(data, {
+	 			// Bind a popup with custom text to each feature
+	 			onEachFeature: function(feature, layer) {
+				layer.bindPopup("<strong> Common Name: </strong>" + feature.properties.CommonName + "<br/><strong>DBH: </strong>" + feature.properties.DBH + " inches<br/><strong>Address: </strong>" + feature.properties.Address);
+			}
+	 	}).addTo(mymap);
+ 	});
+	</script>
+  </body>
+</html>
+```
 
 ### Part Six: Make a map with a tile layer, tree data and marker cluster capability.
+Your final index.html file should look like this:
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Map with Tile Layer Only</title>
+   <!--Adding Leaflet CSS-->
+ 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
 
+   <!-- Adding markerCluster default CSS-->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css"/> 
 
+   <style>
+   #mapid { 
+   	height: 400px;
+   	width: 600px; 
+   }
+   </style>
+  </head>
+
+  <body>
+	<div id ="mapid"></div> 
+	
+	<!-- Everything inside the <script> tags is JavaScript.-->
+	<!-- Adding Leaflet JavaScript Library. Make sure you put this AFTER Leaflet's CSS -->
+ 	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+
+ 	<!-- Add jQuery JavaScript Library-->
+ 	 <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+ 	 <!-- Adding Marker Cluster JavaScript Library -->
+	 <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster-src.js"></script> 
+
+	<!-- Let's make a map! -->
+	<script>
+	// Initializes the Map, centers the map on New Haven's coordinates, sets zoom level to 14.
+	var mymap = L.map('mapid').setView([41.31, -72.93], 14);
+	
+	// Add Open Street Map Tiles to the map
+	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(mymap);
+	</script>
+	
+	<script>
+	// This code block shows each point with custom popups AND marker cluster functionality
+	// The following code is enabled by jQuery. 
+	// Load GeoJSON from an external file
+	$.getJSON("dixwellTrees.geojson",function(data){
+		// add GeoJSON layer to the map once the file is loaded
+	 	var trees = L.geoJSON(data, {
+	 			pointToLayer: function(feature, latlng){
+				var marker = L.marker(latlng);
+				marker.bindPopup("<strong> Common Name: </strong>" + feature.properties.CommonName + "<br/><strong>DBH: </strong>" + feature.properties.DBH + " inches<br/><strong>Address: </strong>" + feature.properties.Address);
+				return marker;
+	 			}
+		});
+ 		
+ 		var clusters = L.markerClusterGroup();
+ 		clusters.addLayer(trees);
+ 		mymap.addLayer(clusters);
+ 	});
+	</script>
+  </body>
+</html>
+```
 
