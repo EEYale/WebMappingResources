@@ -40,7 +40,7 @@ The following tutorial was based on [this awesome tutorial created by Maptime Bo
   </body>
 </html>
 ```
-2) Your final index.html file should look like this:
+2) To add Leaflet functionality, we need to add both the `Leaflet CSS` as well as the `Leaflet JavaScript library` to our script. Then, we add a `<div>` element which is our map, and style it by setting the width and height parameters. Finally, we initialize a map using Leaflet and add the [Open Street Map tile layers](https://wiki.openstreetmap.org/wiki/Tiles) as our basemap. Your final index.html file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
@@ -67,7 +67,7 @@ The following tutorial was based on [this awesome tutorial created by Maptime Bo
 	<!-- Adding Leaflet JavaScript Library. Make sure you put this AFTER Leaflet's CSS -->
  	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
 
-<!-- Let's make a map! -->
+	<!-- Let's make a map! -->
 	<script>
 	// Initializes the Map, centers the map on New Haven's coordinates, sets zoom level to 14.
 	var mymap = L.map('mapid').setView([41.31, -72.93], 14);
@@ -81,7 +81,7 @@ The following tutorial was based on [this awesome tutorial created by Maptime Bo
 ```
 
 ### Part Five: Make a map with a tile layer and tree data.
-Your final index.html file should look like this:
+Now, let's add some tree data to our map as a set of points. We also want each point to have a popup that tells us the Common Name, Diameter at Breast Height (DBH) and the nearest address for the tree. To do this, we need to add the `jQuery JavaScript library` to pull in data from our `dixwellTrees.geojson`. Next, after pulling in the data as `geojson` features, we bind each feature to a pop-up and specify the text which should appear. The pop-up pulls from the properties of each `geojson` feature to produce the correct data for each tree/point on the map. Your final index.html file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
@@ -142,7 +142,7 @@ Your final index.html file should look like this:
 ```
 
 ### Part Six: Make a map with a tile layer, tree data and marker cluster capability.
-Your final index.html file should look like this:
+Wow, that was a lot of points. Perhaps we want to show this in a less dizzying way by clustering the points. To do so, we need to add the `Leaflet markerCluster CSS and JavaScript library` to our script. Then, we replace the previous codeblock that binds pop-ups to each feature using the `onEachFeeature` method, with some code which uses the `pointToLayer` method instead. Your final index.html file should look like this:
 ```html
 <!DOCTYPE html>
 <html>
@@ -204,12 +204,16 @@ Your final index.html file should look like this:
 	 			}
 		});
  		
+		// Adds a variable called clusters from the markerCluster library
  		var clusters = L.markerClusterGroup();
+	
+		// Tell it what to cluster by adding the layer of tree points to the clusters. 
  		clusters.addLayer(trees);
+	
+		// Display this new cluster layer on the map!
  		mymap.addLayer(clusters);
  	});
 	</script>
   </body>
 </html>
 ```
-
