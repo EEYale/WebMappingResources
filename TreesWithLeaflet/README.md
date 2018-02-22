@@ -87,7 +87,7 @@ Now, let's add some tree data to our map as a set of points. We also want each p
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Map with Tile Layer Only</title>
+    <title>Map with Tile Layer and Tree data</title>
    <!--Adding Leaflet CSS-->
  	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
@@ -148,7 +148,7 @@ Wow, that was a lot of points. Perhaps we want to show this in a less dizzying w
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Map with Tile Layer Only</title>
+    <title>Map with Tile Layer, Tree data and Marker Cluster Functionality</title>
    <!--Adding Leaflet CSS-->
  	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
