@@ -1,6 +1,8 @@
 # Make a Leaflet Map with Street Tree Data 
 ## Data provided by the [Urban Resources Institute](https://uri.yale.edu/)
 
+Tutorial by [Sabrina Szeto](sabrinaszeto.github.io)
+
 Short URL to this page: [https://tinyurl.com/treemap2018](https://tinyurl.com/treemap2018)
 
 The following tutorial was based on [this awesome tutorial created by Maptime Boston](https://maptimeboston.github.io/leaflet-intro/) as well as tutorials from [the Leaflet website](https://leafletjs.com). We modified it to use our own New Haven street tree data from the neighborhood of Dixwell. We recommend you read through the Maptime Boston tutorial before attempting to try this out. They do a great job explaining all the bits and pieces you need to know! This tutorial is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by/4.0/).
